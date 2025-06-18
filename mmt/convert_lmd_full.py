@@ -88,21 +88,24 @@ def convert(name, in_dir, out_dir, resolution, skip_existing):
         return
 
     # Read the MIDI file
-    music = muspy.read(in_dir / name[0] / name)
+    try:
+        music = muspy.read(in_dir / name[0] / name)
 
-    # Adjust the resolution
-    adjust_resolution(music, resolution)
+        # Adjust the resolution
+        adjust_resolution(music, resolution)
 
-    # Filter bad files
-    end_time = music.get_end_time()
-    if end_time > resolution * 4 * 2000 or end_time < resolution * 4 * 10:
-        return
+        # Filter bad files
+        end_time = music.get_end_time()
+        if end_time > resolution * 4 * 2000 or end_time < resolution * 4 * 10:
+            return
 
-    # Save as a MusPy JSON file
-    out_filename.parent.mkdir(exist_ok=True, parents=True)
-    music.save(out_filename)
+        # Save as a MusPy JSON file
+        out_filename.parent.mkdir(exist_ok=True, parents=True)
+        music.save(out_filename)
 
-    return out_name
+        return out_name
+    except:
+        return None
 
 
 @utils.ignore_exceptions

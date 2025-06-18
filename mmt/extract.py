@@ -72,10 +72,12 @@ def extract(name, in_dir, out_dir, resolution):
     (out_dir / name).parent.mkdir(exist_ok=True)
 
     # Save the notes as a CSV file
-    representation.save_csv_notes((out_dir / name).with_suffix("csv"), notes)
+    csv_path = out_dir / f'{name}.csv'
+    representation.save_csv_notes(csv_path, notes)
 
     # Save the notes as a NPY file
-    np.save((out_dir / name).with_suffix("npy"), notes)
+    npy_path = out_dir / f'{name}.npy'
+    np.save(npy_path, notes)
 
     return name
 
