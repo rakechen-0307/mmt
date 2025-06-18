@@ -79,7 +79,7 @@ def adjust_resolution(music, resolution):
 def convert(name, in_dir, out_dir, resolution, skip_existing):
     """Convert MIDI and MusicXML files into MusPy JSON files."""
     # Get output filename
-    out_name = f"{name.split('.')[0]}/{name}"
+    out_name = f"{name}"
     out_filename = out_dir / f"{out_name}.json"
 
     # Skip if the output file exists
