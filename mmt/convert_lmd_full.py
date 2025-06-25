@@ -133,7 +133,7 @@ def main():
     args = parse_args()
 
     # Make sure output directory exists
-    args.out_dir.mkdir(exist_ok=True)
+    args.out_dir.mkdir(parents=True, exist_ok=True)
 
     # Set up the logger
     logging.basicConfig(
