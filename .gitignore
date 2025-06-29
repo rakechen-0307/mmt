@@ -154,4 +154,5 @@ Gemfile.lock
 
 # Experiment
 /exp
-data
+data/pop909/POP909
+data/lmd_full

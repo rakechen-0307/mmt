@@ -45,6 +45,10 @@ def main():
         new_tracks = []
         for j in range(len(tracks)):
             if (tracks[j]['name'] != 'BRIDGE'):
+                if (tracks[j]['name'] == 'MELODY'):
+                    tracks[j]['program'] = 4
+                elif (tracks[j]['name'] == 'PIANO'):
+                    tracks[j]['program'] = 0
                 new_tracks.append(tracks[j])
         data['tracks'] = new_tracks
 
